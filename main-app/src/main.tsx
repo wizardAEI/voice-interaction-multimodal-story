@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:06:09
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-01-15 16:20:38
+ * @LastEditTime: 2023-02-12 16:20:27
  * @FilePath: \wtw-front\main-app\src\main.tsx
  * @description: 
  */
@@ -14,6 +14,7 @@ registerMicroApps([
   {
     name: 'threejs-app', // app name registered
     entry: 'http://localhost:3011',
+    // entry: '/threejs-app/',
     container: '#threejs-app',
     activeRule: '/',
   },

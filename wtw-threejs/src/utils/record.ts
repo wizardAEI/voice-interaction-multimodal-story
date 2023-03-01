@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 19:58:35
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-01-16 17:24:55
+ * @LastEditTime: 2023-01-16 22:52:08
  * @FilePath: \wtw-front\wtw-threejs\src\utils\record.ts
  * @description: 
  */
@@ -98,7 +98,6 @@ if (navigator.mediaDevices.getUserMedia) {
 
 
 export const start = () => {
-  console.log(context)
   if(context) {
     audioData.closeContext()
     audioData.buffer = []

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-01-16 17:16:21
+ * @LastEditTime: 2023-01-16 22:21:01
  * @FilePath: \wtw-front\wtw-threejs\src\view\home\Home.tsx
  * @description:
  */
@@ -123,8 +123,8 @@ export default function () {
       },
     });
     console.log(res);
-    if(JSON.parse(res.data.data).result) {
-      const results = JSON.parse(res.data.data).result as string[]
+    if(res.data.data?.result) {
+      const results = res.data.data.result as string[]
       setText(results[0]);
       actionsFn[hasAction(results)]()
     }

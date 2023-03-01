@@ -15,5 +15,6 @@
     "dotenv": "^16.0.3",
     "qiankun": "^2.8.4",
     "styled-components": "^5.3.6"
-  }
+  },
+  "type": "module"
 }
