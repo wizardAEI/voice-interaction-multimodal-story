@@ -3,3 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.App {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
+
+
+@font-face {  
+  font-family: cat;  
+  src: url('./assets/font/MaoKenZhuYuanTi-MaokenZhuyuanTi-2.ttf');
+}

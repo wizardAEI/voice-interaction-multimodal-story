@@ -1,5 +1,5 @@
 import axios from "axios";
-import { parseAudioUrl } from "../config/url";
+import { nodeServerUrl } from "../config/url";
 let mediaRecorder: MediaRecorder;
 let chunks: BlobPart[] | undefined = [];
 
@@ -56,7 +56,7 @@ export async function recordStop() {
 
       const res = await axios({
         method: "post",
-        url: parseAudioUrl + "/parse_audio",
+        url: nodeServerUrl + "/parse_audio",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",

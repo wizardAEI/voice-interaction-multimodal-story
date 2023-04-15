@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:06:09
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-03-01 16:30:06
+ * @LastEditTime: 2023-03-20 21:46:12
  * @FilePath: \wtw-front\main-app\vite.config.ts
  * @description: 
  */
@@ -18,7 +18,7 @@ export default defineConfig(({mode}) => ({
     cors: true
   },
   build: {
-    outDir: '../docker-front/main-app',
+    outDir: '../../web-project/wtw-front/main-app',
     emptyOutDir: true
   }
 }))

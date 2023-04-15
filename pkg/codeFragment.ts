@@ -1,11 +1,11 @@
-import { parseAudioUrl } from "./config/url";
+import { nodeServerUrl } from "./config/url";
 import axios from "axios";
 
 // 解析音频成文本请求
 export async function parseAudio(formData: FormData) {
     const res = await axios({
         method: "post",
-        url: parseAudioUrl + "/parse_audio",
+        url: nodeServerUrl + "/parse_audio",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",

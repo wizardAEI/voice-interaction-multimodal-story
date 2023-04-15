@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-03-01 16:17:04
+ * @LastEditTime: 2023-03-20 21:46:06
  * @FilePath: \wtw-front\wtw-admin\vite.config.ts
  * @description:
  */
@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
       port: process.env.PORT as unknown as number,
     },
     build: {
-      outDir: "../docker/management-platform",
+      outDir: "../../web-project/wtw-front/management-platform",
       emptyOutDir: true,
     },
   };

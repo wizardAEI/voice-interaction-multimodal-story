@@ -3,6 +3,20 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "paths": {
+      "@/stores*": [
+       "./src/stores*"
+      ],
+      "@/components*": [
+        "./src/components*"
+      ],
+      "@/assets*": [
+        "./src/assets*"
+      ],
+      "@/utils*": [
+        "./src/utils*"
+      ],
+    },
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,

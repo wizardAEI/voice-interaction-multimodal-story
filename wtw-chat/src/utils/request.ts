@@ -1,15 +1,16 @@
 /*
  * @Date: 2023-01-15 23:38:54
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-01-16 00:13:01
- * @FilePath: \wtw-front\wtw-threejs\src\utils\request.ts
+ * @LastEditTime: 2023-03-21 22:47:31
+ * @FilePath: \wtw-front\wtw-chat\src\utils\request.ts
  * @description:
  */
 import axios from "axios";
+import { nodeServerUrl } from "../../../pkg/config/url";
 
 // 配置默认URL
 const service = axios.create({
-  baseURL: "http://127.0.0.1:9003",
+  baseURL: nodeServerUrl,
   timeout: 6000,
 });
 

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-03-01 21:14:54
+ * @LastEditTime: 2023-03-03 17:38:55
  * @FilePath: \wtw-front\wtw-admin\src\main.tsx
  * @description:
  */
@@ -28,6 +28,7 @@ function render(props: any) {
           <Route path="son" element={<Son />} />
         </Route>
         <Route path="/management-platform/*" element={<Navigate to="/management-platform" />} />
+        <Route path="*" element={<Navigate to="/management-platform" />} />
       </Routes>
     </BrowserRouter>
   );

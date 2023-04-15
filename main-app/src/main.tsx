@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:06:09
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-03-01 21:51:22
+ * @LastEditTime: 2023-03-28 23:36:11
  * @FilePath: \wtw-front\main-app\src\main.tsx
  * @description: 
  */
@@ -21,18 +21,26 @@ registerMicroApps([
     activeRule: '/chat',
   },
   {
-    name: 'management-platform', // app name registered
-    entry: 'http://localhost:3012',
-    // entry: '/management-platform/',
-    container: '#management-platform',
-    activeRule: '/management-platform',
-  },
-  {
     name: 'story-app', // app name registered
-    entry: '/story-app/',
+    // entry: '/story-app/',
+    entry: 'http://localhost:3013',
     container: '#story-app',
     activeRule: '/story',
   },
+  // {
+  //   name: 'management-platform', // app name registered
+  //   entry: 'http://localhost:3012',
+  //   // entry: '/management-platform/',
+  //   container: '#management-platform',
+  //   activeRule: '/management-platform',
+  // },
+  // {
+  //   name: 'story-app', // app name registered
+  //   // entry: '/story-app/',
+  //   entry: '/story-app/',
+  //   container: '#story-app',
+  //   activeRule: '/wow',
+  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<BrowserRouter>

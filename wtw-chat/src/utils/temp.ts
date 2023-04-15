@@ -1,5 +1,12 @@
+/*
+ * @Date: 2023-01-16 14:29:40
+ * @LastEditors: aei(imaei@foxmail.com)
+ * @LastEditTime: 2023-03-19 23:36:19
+ * @FilePath: \wtw-front\wtw-chat\src\utils\temp.ts
+ * @description: 
+ */
 import axios from "axios";
-import { parseAudioUrl } from "../config/url";
+import { nodeServerUrl } from "../../../pkg/config/url";
 let mediaRecorder: MediaRecorder;
 let chunks: BlobPart[] | undefined = [];
 
@@ -56,7 +63,7 @@ export async function recordStop() {
 
       const res = await axios({
         method: "post",
-        url: parseAudioUrl + "/parse_audio",
+        url: nodeServerUrl + "/parse_audio",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
