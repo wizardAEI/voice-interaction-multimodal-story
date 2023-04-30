@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-04-08 17:30:58
+ * @LastEditTime: 2023-04-24 20:36:50
  * @FilePath: \wtw-front\wtw-chat\src\main.tsx
  * @description:
  */
@@ -26,7 +26,7 @@ function render(props: any) {
     <BrowserRouter
       basename={(window as any).__POWERED_BY_QIANKUN__ ? "/app-react" : "/"}
     >
-      // Step 3: Define the router rules
+      {/* Step 3: Define the router rules */ }
       <Routes>
         <Route path="/chat" element={<Home />} />
         <Route path="/chat/wow" element={<VideoGame />} />

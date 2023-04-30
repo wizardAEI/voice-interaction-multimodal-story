@@ -1,8 +1,8 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-03-20 21:46:51
- * @FilePath: \wtw-front\wtw-chat\vite.config.ts
+ * @LastEditTime: 2023-04-24 20:20:33
+ * @FilePath: \wtw-front\wtw-story\vite.config.ts
  * @description:
  */
 import { defineConfig } from "vite";
@@ -18,20 +18,20 @@ export default defineConfig(({ mode }) => {
     base:
       mode === "development"
         ? "http://localhost:" + process.env.PORT + "/"
-        : "/chat-app/",
+        : "/story-app/",
     server: {
       cors: true,
       origin: "http://localhost:" + process.env.PORT,
       port: process.env.PORT as unknown as number,
     },
     build: {
-      outDir: "../../web-project/wtw-front/chat-app",
+      outDir: "../../web-project/wtw-front/story-app",
       emptyOutDir: true,
     },
     plugins: [
       react(),
       // TODO 生产不行就去掉这里注释
-      qiankun("chat-app", {
+      qiankun("story-app", {
         useDevMode: mode === "development" ? true : false,
       }),
     ],

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-04-13 00:14:03
+ * @LastEditTime: 2023-04-30 12:20:15
  * @FilePath: \wtw-front\wtw-story\src\main.tsx
  * @description:
  */
@@ -14,6 +14,7 @@ import {
   renderWithQiankun,
   qiankunWindow,
 } from "vite-plugin-qiankun/dist/helper";
+import Story from "./view/story/Story";
 
 let root: Root
 function render(props: any) {
@@ -25,8 +26,8 @@ function render(props: any) {
     >
       <Routes>
         <Route path="/story" element={<Home />} />
+        <Route path="/story/:id" element={<Story />} />
         <Route path="/story/*" element={<Navigate to="/story"/>} />
-        <Route path="*"  element={<Navigate to="/chat"/>} />
       </Routes>
     </BrowserRouter>
   );

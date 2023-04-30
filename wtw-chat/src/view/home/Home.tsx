@@ -109,10 +109,10 @@ const ChatBox = styled.div`
     justify-content: end;
   }
   .avatar {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    box-shadow: 0 0 3px 3px rgba(222, 214, 214, 0.6);
+    height: 150px;
+    width: 150px;
+    /* border-radius: 50%;
+    box-shadow: 0 0 3px 3px rgba(222, 214, 214, 0.6); */
   }
   .chat-box {
     display: flex;
@@ -186,8 +186,8 @@ const ChatBox = styled.div`
 `;
 
 const avatars = {
-  fox: nodeServerUrl + "/assets/chat/characters/fox_explore.png",
-  baby: nodeServerUrl + "/assets/chat/characters/baby.png ",
+  fox: nodeServerUrl + "/assets/chat/characters/fox_nobac.png",
+  baby: nodeServerUrl + "/assets/chat/characters/baby_nobac.png ",
 };
 
 const messageArr: ChatMessage = [

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:06:09
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-03-28 23:36:11
+ * @LastEditTime: 2023-04-24 20:34:31
  * @FilePath: \wtw-front\main-app\src\main.tsx
  * @description: 
  */
@@ -26,6 +26,13 @@ registerMicroApps([
     entry: 'http://localhost:3013',
     container: '#story-app',
     activeRule: '/story',
+  },
+  {
+    name: 'game-app', // app name registered
+    // entry: '/story-app/',
+    entry: 'http://localhost:3014',
+    container: '#game-app',
+    activeRule: '/game',
   },
   // {
   //   name: 'management-platform', // app name registered
