@@ -51,9 +51,9 @@ const Container = styled.div`
     }
   }
   .button-voice {
+    cursor: pointer;
     height: 70px;
     width: 70px;
-
     display: flex;
     border-radius: 50%;
     background-image: url(${nodeServerUrl + "/assets/chat/img/m.png"});
@@ -315,7 +315,7 @@ export default function Home() {
     }
     if(message.includes('{redirectToGame}')) {
       needRedirect.isNeed = true
-      needRedirect.to = '/chat/wow'
+      needRedirect.to = '/game'
       message = message.replace('{redirectToGame}', '')
     }
     messages[messages.length - 1] = {
@@ -348,7 +348,6 @@ export default function Home() {
     needRedirect.isNeed && (audioDom.onended = () => {nav(needRedirect.to)})
   }
 
-  useEffect(() => {}, []);
 
   return (
     <Container>

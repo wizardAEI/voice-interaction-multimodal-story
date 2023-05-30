@@ -1,3 +1,10 @@
+/*
+ * @Date: 2023-04-30 11:44:51
+ * @LastEditors: aei(imaei@foxmail.com)
+ * @LastEditTime: 2023-05-01 13:33:20
+ * @FilePath: \wtw-front\wtw-story\src\view\story\Story.tsx
+ * @description: 
+ */
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { nodeServerUrl } from "../../../../pkg/config/url";
@@ -6,15 +13,36 @@ import { useEffect, useRef, useState } from "react";
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100vw;
   background-image: url(${nodeServerUrl + "/assets/story/bac/forest.png"});
   background-size: cover;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow-y: scroll;
+  img {
+    display: block;
+    width: 736px;
+    height: 500px;
+    margin: 50px 0;
+    border-radius: 10px;
+    animation: fadein 1s;
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export default function Story() {
+
+  // Scroll control
+  const boxRef = useRef(null);
+
   // Sound control
   const audioRef = useRef(null);
   let audioDom: any;
@@ -65,6 +93,11 @@ export default function Story() {
       })
       console.log(imgs)
       setImgs([...imgs]);
+      setTimeout(() => {
+      (boxRef.current as any).scrollTop = (
+        boxRef.current as any
+      ) .scrollHeight;
+      }, 100);
       if(storys[nowIndex].type[index + 1] === 'p') {
         setTimeout(() => {
             loadStory(index + 1);
@@ -76,7 +109,7 @@ export default function Story() {
     loadStory(0);
   }, []);
   return (
-    <Container>
+    <Container ref={boxRef}>
       <audio ref={audioRef}></audio>
       {imgs.map((img, index) => {
         return <img src={img.src} alt="" key={img.id} />;

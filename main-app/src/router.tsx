@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-03-01 15:56:50
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-04-24 20:25:55
+ * @LastEditTime: 2023-05-15 22:59:53
  * @FilePath: \wtw-front\main-app\src\router.tsx
  * @description:  路由配置
  */
@@ -40,7 +40,7 @@ export default function Routes() {
       path: "/game",
       element: <GameApp />,
       children: [
-        { path: "*", element: <Navigate to="/story" /> },
+        { path: "*", element: <Navigate to="/game" /> },
       ],
     },
     {

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 12:06:09
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-04-24 20:34:31
+ * @LastEditTime: 2023-05-15 00:19:05
  * @FilePath: \wtw-front\main-app\src\main.tsx
  * @description: 
  */
@@ -15,22 +15,22 @@ import Routes from './router';
 registerMicroApps([
   {
     name: 'chat-app', // app name registered
-    entry: 'http://localhost:3011',
-    // entry: '/chat-app/',
+    // entry: 'http://localhost:3011',
+    entry: '/chat-app/',
     container: '#chat-app',
     activeRule: '/chat',
   },
   {
     name: 'story-app', // app name registered
-    // entry: '/story-app/',
-    entry: 'http://localhost:3013',
+    entry: '/story-app/',
+    // entry: 'http://localhost:3013',
     container: '#story-app',
     activeRule: '/story',
   },
   {
     name: 'game-app', // app name registered
-    // entry: '/story-app/',
-    entry: 'http://localhost:3014',
+    entry: '/game-app/',
+    // entry: 'http://localhost:3014',
     container: '#game-app',
     activeRule: '/game',
   },

@@ -1,17 +1,19 @@
 /*
  * @Date: 2023-01-15 12:08:01
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-04-29 12:29:47
+ * @LastEditTime: 2023-05-15 01:15:05
  * @FilePath: \wtw-front\wtw-game\src\view\home\Home.tsx
  * @description:
  */
 import axios from "axios";
-import { chatBac } from "../../config/define";
+import { gameBac, gameBac2 } from "../../config/define";
 import { nodeServerUrl } from "../../../../pkg/config/url";
 import { useEffect, useRef, useState } from "react";
 import { start, stop } from "../../utils/record";
 import styled from "styled-components";
-import { initXiaoXiao } from "../../three/xiaoxiao";
+import { initWebGL } from "../../three/init";
+import { useSearchParams } from "react-router-dom";
+import { SubTitle } from "../../components/Subtitle";
 
 // css
 const Container = styled.div`
@@ -77,6 +79,7 @@ const Container = styled.div`
   .stopButton {
     left: clac(50% + 150px);
   }
+
 `;
 const WebGlCanvas = styled.canvas`
   position: fixed;
@@ -94,20 +97,41 @@ const Text = styled.span`
 `;
 
 let parentId = "",
-  systemMessage = chatBac,
+  systemMessage = gameBac,
   conversationId = "";
+
+let initWebGLRes:{changeAnimation:((actionName: string) => void)}| null = null;
+
+let animations = [
+  {"生气": 'angry'},
+  {"跳舞": 'dance'},
+  {"发呆": 'Idle.001'},
+  {"条约": 'Standing jump'},
+  {"说话": 'talking'},{"跳跃": 'talking'},
+  {"走路": 'walking.001'},
+  {"摆手": 'waving'},
+  {"打哈欠": 'yawning sleepy'},
+];
 
 // TODO 定义返回模型
 export default function Home() {
+
+  // 获取路由参数
+  const [routerParams] = useSearchParams("host=xiaoxiao")
+  useEffect(() => {
+    if(routerParams.get("host") === 'xiaoaoao') {
+      systemMessage = gameBac2
+    };
+    initWebGLRes = initWebGL(routerParams.get("host")!)
+  }, [routerParams])
+
   // 声音控件
   const audioRef = useRef(null);
 
-  const [text, setText] = useState("hello!");
-  useEffect(() => {
-    initXiaoXiao()
-  }, []);
+  const [text, setText] = useState("你好啊，小朋友");
   async function chat() {
     const blob = stop();
+    setText(".....")
     const buffer = await blob.arrayBuffer();
     const file = Array.prototype.slice.call(new Uint8Array(buffer)); // buffer转array
     // 解析音频
@@ -126,13 +150,23 @@ export default function Home() {
       return;
     }
     const res = data.data;
-    (parentId = res.id),
-      (conversationId = res.conversationId),
-      (systemMessage = "");
+    (parentId = res.id || ""),
+    (conversationId = res.conversationId || "");
     const question = res.question as string;
     const answer = res.answer as string;
+    console.log(answer)
+    if(animations.find((item) => {
+      Object.keys(item).find((key) => {
+        if(answer.includes(key)){
+         // ignore typescript error
+         // @ts-ignore
+         initWebGLRes!.changeAnimation(item[key])
+        } 
+      })
+    }))
+    console.log(answer)
     // 打印说的话和回答的话
-    setText("Q: " + question + "\n" + "A: " + answer);
+    setText(answer);
     // 播放回答
     let audioBlob = new Blob([new Int8Array(res?.data.data)], {
       type: "autio/wave",
@@ -151,8 +185,9 @@ export default function Home() {
         暂停录制
       </button>
       <WebGlCanvas className="webgl-canvas"></WebGlCanvas>
-      <Text>{text}</Text>
+      {/* <Text>{text}</Text> */}
       <audio ref={audioRef}></audio>
+      <SubTitle subtitleVal={text}></SubTitle>
     </Container>
   );
 }

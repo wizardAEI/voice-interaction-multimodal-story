@@ -7,8 +7,6 @@ import { nodeServerUrl } from "../../../pkg/config/url";
 /**
  * Base
  */
-
-
 let numAnimations = 0,
   mixer: THREE.AnimationMixer,
   clock: THREE.Clock,
@@ -20,12 +18,12 @@ let baseActions: {
   };
 } = {}
 let currentActionName = 'Idle.001'
-export function initXiaoXiao() {
+export function initWebGL(hostName: string) {
   // Canvas
   const canvas = document.querySelector(".webgl-canvas") as HTMLCanvasElement;
 
   clock = new THREE.Clock();
-  // 忽略类型检查
+  // ignore the type error
   // @ts-ignore
   stats = new Stats()
   canvas.appendChild(stats.dom)
@@ -34,11 +32,11 @@ export function initXiaoXiao() {
   const tloader = new THREE.TextureLoader();
   const bgTexture = tloader.load(nodeServerUrl + '/assets/blender/bac/room.png');
   scene.background = bgTexture;
-  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 2);
   hemiLight.position.set(0, 20, 0);
   scene.add(hemiLight);
 
-  const dirLight = new THREE.DirectionalLight(0xffffff);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 2);
   dirLight.position.set(3, 10, 10);
   dirLight.castShadow = true;
   dirLight.shadow.camera.top = 2;
@@ -59,7 +57,7 @@ export function initXiaoXiao() {
     model.scale.set(2, 2, 2);
     model.rotateY(-Math.PI / 4);
     scene.add(model);
-    loader.load(nodeServerUrl + "/assets/blender/xiaoxiao.glb", (gltf) => {
+    loader.load(nodeServerUrl + "/assets/blender/" + hostName + ".glb", (gltf) => {
       console.log(gltf);
       const model = gltf.scene;
       model.position.set(0, -5.7, 3);
@@ -193,9 +191,17 @@ export function initXiaoXiao() {
   function changeAnimation( actionName: string) {
       setWeight( baseActions[ currentActionName ].action!, 0)
       setWeight( baseActions[ actionName ].action!, 1)
+      currentActionName = actionName
   }
 
   setTimeout(() => {
     changeAnimation("waving")
+    setTimeout(() => {
+      changeAnimation("Idle.001")
+    }, 3000)
   }, 3000)
+
+  return {
+    changeAnimation
+  }
 }

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-04-12 21:56:50
  * @LastEditors: aei(imaei@foxmail.com)
- * @LastEditTime: 2023-04-30 11:41:05
+ * @LastEditTime: 2023-05-12 22:51:51
  * @FilePath: \wtw-front\wtw-story\src\view\home\Home.tsx
  * @description:
  */
@@ -83,11 +83,11 @@ export default function Home() {
           <ul>
             <li onClick={() => nav("/story/1")}>
               {" "}
-              <img src={nodeServerUrl + "/assets/story/book_cover/fox_and_bear.png"} />
+              <img src={nodeServerUrl + "/assets/story/book_cover/fox_and_bear.jpg"} />
             </li>
             <li>
               {" "}
-              <img src="https://damonza.com/wp-content/uploads/portfolio/fiction/The-prophecy_03.jpg" />
+              <img src="https://images.penguinrandomhouse.com/cover/9781101931288" />
             </li>
             <li>
               {" "}

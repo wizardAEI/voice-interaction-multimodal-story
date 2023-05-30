@@ -5,3 +5,10 @@
  * @FilePath: \wtw-front\wtw-chat\src\view\home\model.ts
  * @description: 
  */
+export type ChatMessage = {
+        id: number
+        type: 'child' | 'bot'
+        message: string
+        avatar: string
+    }[]
+    
