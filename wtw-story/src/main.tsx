@@ -8,7 +8,7 @@
 import ReactDOM, { Root } from "react-dom/client";
 import Home from "./view/home/Home";
 import "./style.css";
-import "../../pkg/css/icon.css"
+import "../../pkg/css/icon.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {
   renderWithQiankun,
@@ -16,10 +16,14 @@ import {
 } from "vite-plugin-qiankun/dist/helper";
 import Story from "./view/story/Story";
 
-let root: Root
+let root: Root;
 function render(props: any) {
   const { container } = props;
-  root = ReactDOM.createRoot((container ? container.querySelector('#root') : document.querySelector('#root')) as HTMLElement)
+  root = ReactDOM.createRoot(
+    (container
+      ? container.querySelector("#root")
+      : document.querySelector("#root")) as HTMLElement
+  );
   root.render(
     <BrowserRouter
       basename={(window as any).__POWERED_BY_QIANKUN__ ? "/app-react" : "/"}
@@ -27,7 +31,7 @@ function render(props: any) {
       <Routes>
         <Route path="/story" element={<Home />} />
         <Route path="/story/:id" element={<Story />} />
-        <Route path="/story/*" element={<Navigate to="/story"/>} />
+        <Route path="/story/*" element={<Navigate to="/story" />} />
       </Routes>
     </BrowserRouter>
   );
@@ -35,19 +39,19 @@ function render(props: any) {
 
 renderWithQiankun({
   mount(props) {
-    console.log('mount');
+    console.log("mount");
     render(props);
   },
   bootstrap() {
-    console.log('bootstrap');
+    console.log("bootstrap");
   },
   unmount(props: any) {
-    console.log('unmount');
+    console.log("unmount");
     root.unmount();
   },
   update(props) {
-    console.log(props)
-  }
+    console.log(props);
+  },
 });
 
 if (!qiankunWindow.__POWERED_BY_QIANKUN__) {

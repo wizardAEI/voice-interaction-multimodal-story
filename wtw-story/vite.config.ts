@@ -15,10 +15,7 @@ import qiankun from "vite-plugin-qiankun";
 export default defineConfig(({ mode }) => {
   return {
     // 生产环境需要指定运行域名作为base
-    base:
-      mode === "development"
-        ? "http://localhost:" + process.env.PORT + "/"
-        : "/story-app/",
+    base: "/story-app/",
     server: {
       cors: true,
       origin: "http://localhost:" + process.env.PORT,
