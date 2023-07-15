@@ -9,4 +9,4 @@
 
 1. 微前端架构每个子应用分别打包（为什么采用微前端：完全没有采用该架构，因为工作后可能会用到，正好就拿来练手了）
 
-2. 打包配置在每个vite.config.ts中，打包命令在package.json中, 输出路径需要修改outDir
+2. 打包配置在每个vite.config.ts中，打包命令在package.json中, 输出路径需要修改outDir属性值
